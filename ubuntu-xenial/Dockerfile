@@ -13,7 +13,7 @@ ENV pip_pkgs "ansible"
 #molecule flake8 ansible-lint molecule testinfra
 
 # Install required packages
-RUN python3 -m pip install -U latest pip wheel
+RUN python3 -m pip install -U pip wheel
 
 RUN python3 -m pip install -U $pip_pkgs
 
