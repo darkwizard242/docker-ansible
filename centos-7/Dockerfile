@@ -7,8 +7,6 @@ ENV dependencies "which software-properties-common python36 python36-pip python3
 RUN  yum install epel-release -y \
      && yum update -y \
      && yum install $dependencies -y \
-     && rm -rf /usr/share/doc \
-     && rm -rf /usr/share/man \
      && yum clean all
 
 ENV pip_pkgs "ansible" 
