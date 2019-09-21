@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER darkwizard242 <am900820@gmail.com>
 
-ENV dependencies "which software-properties-common python36 python36-pip python36-setuptools sudo"
+ENV dependencies "which software-properties-common python36 python36-pip python36-setuptools sudo systemd"
 
 # Install required dependencies
 RUN  yum install epel-release -y \
