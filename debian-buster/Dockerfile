@@ -1,7 +1,7 @@
 FROM debian:buster
 MAINTAINER darkwizard242 <am900820@gmail.com>
 
-ENV dependencies "software-properties-common python3 python3-pip python3-setuptools python3-software-properties sudo systemd"
+ENV dependencies "software-properties-common python3 python3-pip python3-setuptools python3-software-properties sudo systemd apt-transport-https"
 
 # Install required dependencies
 RUN  DEBIAN_FRONTEND=non-interactive apt-get update -y \
@@ -9,7 +9,7 @@ RUN  DEBIAN_FRONTEND=non-interactive apt-get update -y \
      && rm -rf /var/lib/apt/lists/* \
      && apt-get clean
 
-ENV pip_pkgs "ansible" 
+ENV pip_pkgs "ansible"
 #molecule flake8 ansible-lint molecule testinfra
 
 # Install required packages
