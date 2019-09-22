@@ -1,6 +1,6 @@
 # docker-ansible
 ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/darkwizard242/ansible?style=flat-square)
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/darkwizard242/ansible?color=g)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/darkwizard242/ansible)
 ![Docker Pulls](https://img.shields.io/docker/pulls/darkwizard242/ansible?color=yellow)
 ![GitHub](https://img.shields.io/github/license/darkwizard242/docker-ansible)
 
