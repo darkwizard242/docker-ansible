@@ -19,4 +19,4 @@ RUN python3 -m pip install -U $pip_pkgs
 
 # Initialize
 
-CMD ["/bin/bash"]
+CMD ["/lib/systemd/systemd"]
