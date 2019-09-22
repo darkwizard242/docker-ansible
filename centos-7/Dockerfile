@@ -14,7 +14,7 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 ENV dependencies "which software-properties-common python3 python3-pip python3-setuptools sudo systemd"
 
 # Install required dependencies
-RUN  yum install epel-release -y \
+RUN  yum install deltarpm epel-release initscripts -y \
      && yum update -y \
      && yum install $dependencies -y \
      && yum clean all
