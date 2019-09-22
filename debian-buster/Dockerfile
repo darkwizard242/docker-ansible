@@ -17,6 +17,8 @@ RUN python3 -m pip install -U pip wheel
 
 RUN python3 -m pip install -U $pip_pkgs
 
-# Initialize
+# Volume mount requirement for systemd
+VOLUME ["/sys/fs/cgroup"]
 
+# Initialize
 CMD ["/lib/systemd/systemd"]
