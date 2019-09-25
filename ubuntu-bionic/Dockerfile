@@ -17,7 +17,7 @@ RUN python3 -m pip install -U pip wheel
 
 RUN python3 -m pip install -U $pip_pkgs
 
-COPY initctl_faker .
+COPY ubuntu-bionic/initctl_faker .
 RUN chmod +x initctl_faker && rm -fr /sbin/initctl && ln -s /initctl_faker /sbin/initctl
 
 # Volume mount requirement for systemd
