@@ -13,9 +13,10 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     strategy:
+      max_parallel: 6
       matrix:
-      TAG_NAME: [ubuntu-18.04, ubuntu-16.04, centos-7, debian-buster, debian-stretch, debian-jessie]
- 
+        TAG_NAME: [ubuntu-18.04, ubuntu-16.04, centos-7, debian-buster, debian-stretch, debian-jessie]
+
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image for ansible:${{matrix.TAG_NAME}}
