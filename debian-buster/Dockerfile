@@ -1,7 +1,7 @@
 FROM debian:buster
 MAINTAINER darkwizard242 <am900820@gmail.com>
 
-ENV dependencies "software-properties-common python3 python3-pip python3-setuptools python3-software-properties sudo systemd apt-transport-https  iputils-ping"
+ENV dependencies "software-properties-common python3 python3-pip python3-setuptools python3-software-properties sudo systemd apt-transport-https iputils-ping wget curl"
 
 # Install required dependencies
 RUN  DEBIAN_FRONTEND=non-interactive apt-get update -y \

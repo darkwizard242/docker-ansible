@@ -1,0 +1,32 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+      - feature_*
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    #strategy:
+      #matrix:
+      #DISTRO: [ubuntu-18.04]
+ 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image for ansible:ubuntu-18.04
+      run: docker build . --file ubuntu-bionic/Dockerfile --tag ansible:ubuntu-18.04
+    - name: Build the Docker image for ansible:ubuntu-16.04
+      run: docker build . --file ubuntu-xenial/Dockerfile --tag ansible:ubuntu-16.04
+    - name: Build the Docker image for ansible:centos-7
+      run: docker build . --file centos-7/Dockerfile --tag ansible:centos-7
+    - name: Build the Docker image for ansible:debian-buster
+      run: docker build . --file debian-buster/Dockerfile --tag ansible:debian-buster
+    - name: Build the Docker image for ansible:debian-stretch
+      run: docker build . --file debian-stretch/Dockerfile --tag ansible:debian-stretch
+    - name: Build the Docker image for ansible:debian-jessie
+      run: docker build . --file debian-jessie/Dockerfile --tag ansible:debian-jessie
