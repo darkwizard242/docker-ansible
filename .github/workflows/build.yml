@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: docker-automated-build
 
 on:
   pull_request:
@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - master
-      - feature_*
 
 jobs:
   build:
@@ -19,5 +18,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build docker image for TAG_NAME
-      run: docker build . --file ${{matrix.TAG_NAME}}/Dockerfile --tag ansible:${{matrix.TAG_NAME}}
+    - name: Build docker image
+      env:
+        DOCKER_HUB_USER: ${{ secrets.USER }}
+        DOCKER_HUB_PASS: ${{ secrets.PASS }}
+      run: |
+        echo -e "\nLogging into Docker Hub...\n"
+        docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS
+        echo -e "\nBuilding image for:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\n"
+        docker build . -f ${{matrix.TAG_NAME}}/Dockerfile --tag darkwizard242/ansible:${{ matrix.TAG_NAME }}
+        echo -e "\nBuilding image of:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\tto Dockerhub..\n"
+        docker push darkwizard242/ansible:${{ matrix.TAG_NAME }}
+        echo -e "\nNew image for:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }} has now been pushed to Dockerhub  !!!"
+    - name: Archive and upload Dockerfile
+      uses: actions/upload-artifact@master
+      with:
+        name: ${{ matrix.TAG_NAME }}_Dockerfile
+        path: ${{ matrix.TAG_NAME }}/Dockerfile
