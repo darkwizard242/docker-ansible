@@ -14,7 +14,7 @@ rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
-ENV dependencies "which software-properties-common python3 python3-pip python3-setuptools sudo systemd"
+ENV dependencies "which software-properties-common python3 python3-pip python3-setuptools sudo systemd wget curl"
 
 # Install required dependencies
 RUN yum makecache fast \

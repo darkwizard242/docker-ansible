@@ -1,0 +1,39 @@
+name: docker-automated-build
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 8 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      max-parallel: 6
+      matrix:
+        TAG_NAME: [ubuntu-18.04, ubuntu-16.04, centos-7, debian-buster, debian-stretch, debian-jessie]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build docker image
+      env:
+        DOCKER_HUB_USER: ${{ secrets.USER }}
+        DOCKER_HUB_PASS: ${{ secrets.PASS }}
+      run: |
+        echo -e "\nLogging into Docker Hub...\n"
+        echo $DOCKER_HUB_PASS | docker login -u $DOCKER_HUB_USER --password-stdin
+        echo -e "\nBuilding image for:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\n"
+        docker build . -f ${{matrix.TAG_NAME}}/Dockerfile --tag darkwizard242/ansible:${{ matrix.TAG_NAME }}
+        echo -e "\nPushing build image of:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\tto Dockerhub..\n"
+        docker push darkwizard242/ansible:${{ matrix.TAG_NAME }}
+        echo -e "\nNew image for:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }} has now been pushed to Dockerhub  !!!"
+    - name: Archive and upload Dockerfile
+      uses: actions/upload-artifact@master
+      with:
+        name: ${{ matrix.TAG_NAME }}_image_artifacts
+        path: ${{ matrix.TAG_NAME }}/

@@ -1,7 +1,7 @@
 FROM debian:buster
 MAINTAINER darkwizard242 <am900820@gmail.com>
 
-ENV dependencies "software-properties-common python3 python3-pip python3-setuptools python3-software-properties sudo systemd apt-transport-https  iputils-ping"
+ENV dependencies "software-properties-common python3 python3-pip python3-setuptools python3-software-properties sudo systemd apt-transport-https iputils-ping wget curl"
 
 # Install required dependencies
 RUN  DEBIAN_FRONTEND=non-interactive apt-get update -y \
@@ -17,7 +17,7 @@ RUN python3 -m pip install -U pip wheel
 
 RUN python3 -m pip install -U $pip_pkgs
 
-COPY initctl_faker .
+COPY debian-buster/initctl_faker .
 RUN chmod +x initctl_faker && rm -fr /sbin/initctl && ln -s /initctl_faker /sbin/initctl
 
 # Volume mount requirement for systemd
