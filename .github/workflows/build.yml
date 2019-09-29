@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - master
+  schedule:
+    - cron: '0 8 * * *'
 
 jobs:
   build:
@@ -27,7 +29,7 @@ jobs:
         echo $DOCKER_HUB_PASS | docker login -u $DOCKER_HUB_USER --password-stdin
         echo -e "\nBuilding image for:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\n"
         docker build . -f ${{matrix.TAG_NAME}}/Dockerfile --tag darkwizard242/ansible:${{ matrix.TAG_NAME }}
-        echo -e "\nBuilding image of:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\tto Dockerhub..\n"
+        echo -e "\nPushing build image of:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\tto Dockerhub..\n"
         docker push darkwizard242/ansible:${{ matrix.TAG_NAME }}
         echo -e "\nNew image for:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }} has now been pushed to Dockerhub  !!!"
     - name: Archive and upload Dockerfile
