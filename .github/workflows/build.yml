@@ -33,5 +33,5 @@ jobs:
     - name: Archive and upload Dockerfile
       uses: actions/upload-artifact@master
       with:
-        name: ${{ matrix.TAG_NAME }}_Dockerfile
-        path: ${{ matrix.TAG_NAME }}/Dockerfile
+        name: ${{ matrix.TAG_NAME }}_image_artifacts
+        path: ${{ matrix.TAG_NAME }}/*
