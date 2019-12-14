@@ -20,6 +20,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Install Trivy for Vulnerability Scanning of Docker images.
+      run: |
+        curl -fsSL https://raw.githubusercontent.com/darkwizard242/devopsubuntu1804/v1.0/packer-build/mods/27-trivy.sh | sudo bash -s -- install
     - name: Build docker image
       env:
         DOCKER_HUB_USER: ${{ secrets.USER }}
@@ -32,6 +35,9 @@ jobs:
         echo -e "\nPushing build image of:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\tto Dockerhub..\n"
         docker push darkwizard242/ansible:${{ matrix.TAG_NAME }}
         echo -e "\nNew image for:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }} has now been pushed to Dockerhub  !!!"
+    - name: Run Trivy for Vulnerability Scanning of image
+      run: |
+        trivy darkwizard242/prometheus:${{ matrix.TAG_NAME }}
     - name: Archive and upload Dockerfile
       uses: actions/upload-artifact@master
       with:
