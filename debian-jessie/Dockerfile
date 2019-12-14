@@ -5,6 +5,7 @@ ENV dependencies "software-properties-common python3 python3-pip python3-setupto
 
 # Install required dependencies
 RUN  DEBIAN_FRONTEND=non-interactive apt-get update -y \
+     && DEBIAN_FRONTEND=non-interactive apt-get upgrade -y \
      && DEBIAN_FRONTEND=non-interactive apt-get install $dependencies -y \
      && rm -rf /var/lib/apt/lists/* \
      && apt-get clean

@@ -33,7 +33,7 @@ jobs:
     - name: Run Trivy for Vulnerability Scanning of image
       run: |
         export TRIVY_TIMEOUT_SEC=360s
-        trivy --clear-cache darkwizard242/prometheus:${{ matrix.TAG_NAME }}
+        trivy darkwizard242/ansible:${{ matrix.TAG_NAME }}
     - name: Deploy newly build image to DockerHub
       run: |
         echo -e "\nLogging into Docker Hub...\n"

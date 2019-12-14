@@ -2,6 +2,7 @@ FROM centos:7
 MAINTAINER darkwizard242 <am900820@gmail.com>
 
 RUN yum -y update \
+    && yum -y upgrade \
     && yum clean all
 
 ENV dependencies "which software-properties-common python3 python3-pip python3-setuptools sudo wget curl"
