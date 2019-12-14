@@ -28,16 +28,16 @@ jobs:
         DOCKER_HUB_USER: ${{ secrets.USER }}
         DOCKER_HUB_PASS: ${{ secrets.PASS }}
       run: |
+        echo -e "\nLogging into Docker Hub...\n"
+        echo $DOCKER_HUB_PASS | docker login -u $DOCKER_HUB_USER --password-stdin
         echo -e "\nBuilding image for:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\n"
         docker build . -f ${{matrix.TAG_NAME}}/Dockerfile --tag darkwizard242/ansible:${{ matrix.TAG_NAME }}
     - name: Run Trivy for Vulnerability Scanning of image
       run: |
         export TRIVY_TIMEOUT_SEC=360s
-        trivy darkwizard242/ansible:${{ matrix.TAG_NAME }}
-    - name: Deploy newly build image to DockerHub
+        trivy -severity HIGH,CRITICAL,MEDIUM,LOW darkwizard242/ansible:${{ matrix.TAG_NAME }}
+    - name: Deploy newly built image to DockerHub
       run: |
-        echo -e "\nLogging into Docker Hub...\n"
-        echo $DOCKER_HUB_PASS | docker login -u $DOCKER_HUB_USER --password-stdin
         echo -e "\nPushing build image of:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }}\tto Dockerhub..\n"
         docker push darkwizard242/ansible:${{ matrix.TAG_NAME }}
         echo -e "\nNew image for:\tdarkwizard242/ansible:${{ matrix.TAG_NAME }} has now been pushed to Dockerhub  !!!"
