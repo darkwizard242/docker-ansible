@@ -14,6 +14,10 @@ For Ubuntu 16.04 (xenial), docker tag and Dockerfile:
 
 - [ubuntu-16.04](https://github.com/darkwizard242/docker-ansible/blob/master/ubuntu-xenial/Dockerfile)
 
+For CentOS 8, docker tag and Dockerfile:
+
+- [centos-8](https://github.com/darkwizard242/docker-ansible/blob/master/centos-8/Dockerfile)
+
 For CentOS 7, docker tag and Dockerfile:
 
 - [centos-7](https://github.com/darkwizard242/docker-ansible/blob/master/centos-7/Dockerfile)
@@ -46,25 +50,31 @@ docker run -it darkwizard242/ansible:ubuntu-18.04 /bin/bash
 docker run -it darkwizard242/ansible:ubuntu-16.04 /bin/bash
 ```
 
-### 3\. CentOS 7:
+### 3\. CentOS 8:
+
+```shell
+docker run -it darkwizard242/ansible:centos-8 /bin/bash
+```
+
+### 4\. CentOS 7:
 
 ```shell
 docker run -it darkwizard242/ansible:centos-7 /bin/bash
 ```
 
-### 4\. Debain 10 (Buster):
+### 5\. Debain 10 (Buster):
 
 ```shell
 docker run -it darkwizard242/ansible:debian-buster /bin/bash
 ```
 
-### 5\. Debain 9 (Stretch):
+### 6\. Debain 9 (Stretch):
 
 ```shell
 docker run -it darkwizard242/ansible:debian-stretch /bin/bash
 ```
 
-### 6\. Debain 8 (Jessie):
+### 7\. Debain 8 (Jessie):
 
 ```shell
 docker run -it darkwizard242/ansible:debian-jessie /bin/bash
