@@ -1,6 +1,6 @@
 # docker-ansible
 
-[![](https://github.com/darkwizard242/docker-ansible/workflows/docker-automated-build/badge.svg)](https://github.com/darkwizard242/docker-ansible/actions) ![Docker Pulls](https://img.shields.io/docker/pulls/darkwizard242/ansible?color=yellow) ![GitHub](https://img.shields.io/github/license/darkwizard242/docker-ansible)
+[![](https://github.com/darkwizard242/docker-ansible/workflows/docker-ansible-automated-build/badge.svg)](https://github.com/darkwizard242/docker-ansible/actions) ![Docker Pulls](https://img.shields.io/docker/pulls/darkwizard242/ansible?color=yellow) ![GitHub](https://img.shields.io/github/license/darkwizard242/docker-ansible)
 
 Docker images that contains ansible and/or any pre-requistes installed within the images. Purpose of these container images is to provide users with easy to use ansible docker containers as well as for easily ready images for facilitating molecule testing of ansible roles during development.
 

@@ -1,4 +1,4 @@
-name: docker-automated-build
+name: docker-ansible-automated-build
 
 on:
   pull_request:
