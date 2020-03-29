@@ -26,8 +26,8 @@ jobs:
     - name: Build docker image tag ${{ matrix.TAG_NAME }} & push to dockerhub
       uses: docker/build-push-action@v1
       with:
-        username: ${{ secrets.HUB_USER }}
-        password: ${{ secrets.HUB_TOKEN }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.PASS }}
         dockerfile: ${{matrix.TAG_NAME}}/Dockerfile
         repository: darkwizard242/ansible
         tags: ${{ matrix.TAG_NAME }}
