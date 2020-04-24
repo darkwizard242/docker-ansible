@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM ubuntu:focal
 MAINTAINER darkwizard242 <am900820@gmail.com>
 
 ENV dependencies "software-properties-common python3 python3-pip python3-setuptools python3-software-properties sudo apt-transport-https iputils-ping wget curl"

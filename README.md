@@ -6,13 +6,17 @@ Docker images that contains ansible and/or any pre-requistes installed within th
 
 ## Supported tags and Dockerfile:
 
+For Ubuntu 20.04 (focal), docker tag and Dockerfile:
+
+- [ubuntu-20.04](https://github.com/darkwizard242/docker-ansible/blob/master/ubuntu-20.04/Dockerfile)
+
 For Ubuntu 18.04 (bionic), docker tag and Dockerfile:
 
-- [ubuntu-18.04](https://github.com/darkwizard242/docker-ansible/blob/master/ubuntu-bionic/Dockerfile)
+- [ubuntu-18.04](https://github.com/darkwizard242/docker-ansible/blob/master/ubuntu-18.04/Dockerfile)
 
 For Ubuntu 16.04 (xenial), docker tag and Dockerfile:
 
-- [ubuntu-16.04](https://github.com/darkwizard242/docker-ansible/blob/master/ubuntu-xenial/Dockerfile)
+- [ubuntu-16.04](https://github.com/darkwizard242/docker-ansible/blob/master/ubuntu-16.04/Dockerfile)
 
 For CentOS 8, docker tag and Dockerfile:
 
@@ -38,43 +42,49 @@ For Debian 8 (jessie), docker tag and Dockerfile:
 
 Simply, pull the docker image using whichever tag you prefer or run it directly.
 
-### 1\. Ubuntu 18.04:
+### 1\. Ubuntu 20.04:
+
+```shell
+docker run -it darkwizard242/ansible:ubuntu-20.04 /bin/bash
+```
+
+### 2\. Ubuntu 18.04:
 
 ```shell
 docker run -it darkwizard242/ansible:ubuntu-18.04 /bin/bash
 ```
 
-### 2\. Ubuntu 16.04:
+### 3\. Ubuntu 16.04:
 
 ```shell
 docker run -it darkwizard242/ansible:ubuntu-16.04 /bin/bash
 ```
 
-### 3\. CentOS 8:
+### 4\. CentOS 8:
 
 ```shell
 docker run -it darkwizard242/ansible:centos-8 /bin/bash
 ```
 
-### 4\. CentOS 7:
+### 5\. CentOS 7:
 
 ```shell
 docker run -it darkwizard242/ansible:centos-7 /bin/bash
 ```
 
-### 5\. Debain 10 (Buster):
+### 6\. Debain 10 (Buster):
 
 ```shell
 docker run -it darkwizard242/ansible:debian-buster /bin/bash
 ```
 
-### 6\. Debain 9 (Stretch):
+### 7\. Debain 9 (Stretch):
 
 ```shell
 docker run -it darkwizard242/ansible:debian-stretch /bin/bash
 ```
 
-### 7\. Debain 8 (Jessie):
+### 8\. Debain 8 (Jessie):
 
 ```shell
 docker run -it darkwizard242/ansible:debian-jessie /bin/bash
