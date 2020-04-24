@@ -7,7 +7,8 @@ ENV dependencies "software-properties-common python3 python3-pip python3-setupto
 RUN  DEBIAN_FRONTEND=non-interactive apt-get update -y \
      && DEBIAN_FRONTEND=non-interactive apt-get upgrade -y \
      && DEBIAN_FRONTEND=non-interactive apt-get install $dependencies -y \
-     && rm -rf /var/lib/apt/lists/* \
+     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*.deb \
+     && apt-get autoremove \
      && apt-get clean
 
 ENV pip_pkgs "ansible"
