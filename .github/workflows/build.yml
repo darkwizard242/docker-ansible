@@ -34,6 +34,8 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: ${{matrix.TAG_NAME}}/Dockerfile
+        pull: true
+        push: true
         tags: darkwizard242/ansible:${{ matrix.TAG_NAME }}
     - name: Run Trivy for Vulnerability Scanning of image
       run: |
