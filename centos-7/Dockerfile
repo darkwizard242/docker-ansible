@@ -1,25 +1,22 @@
-FROM centos:7
+FROM centos:7 as base
 MAINTAINER darkwizard242 <am900820@gmail.com>
 
-RUN yum -y update \
-    && yum -y upgrade \
+ENV DEPENDENCIES "which software-properties-common python3 python3-pip python3-setuptools sudo wget curl"
+
+ENV PIP_PKGS "ansible"
+
+RUN yum -y check-update \
+    && yum -y update-minimal \
+    && yum makecache fast \
+    && yum install --setopt=install_weak_deps=False deltarpm epel-release initscripts -y \
+    && yum -y check-update \
+    && yum install --setopt=install_weak_deps=False ${DEPENDENCIES} @development -y \
+    && python3 -m pip install --no-cache-dir -U pip wheel \
+    && python3 -m pip install --no-cache-dir -U $PIP_PKGS \
+    && for FILE in $(find /var/log -maxdepth 2 -type f); do echo "" > ${FILE}; done \
     && yum clean all
 
-ENV dependencies "which software-properties-common python3 python3-pip python3-setuptools sudo wget curl"
-
-# Install required dependencies
-RUN yum makecache fast \
-    && yum install deltarpm epel-release initscripts -y \
-    && yum update -y \
-    && yum install $dependencies @development -y \
-    && yum clean all
-
-ENV pip_pkgs "ansible"
-#molecule flake8 ansible-lint molecule testinfra
-
-# Install required packages
-RUN python3 -m pip install -U pip wheel \
-    && python3 -m pip install -U $pip_pkgs
+FROM base
 
 # Initialize
 CMD ["/bin/bash"]
