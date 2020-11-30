@@ -15,8 +15,7 @@ RUN dnf check-update -y  || true \
     && python3 -m pip install --no-cache-dir -U $PIP_PKGS \
     && for FILE in $(find /var/log -maxdepth 2 -type f); do echo "" > ${FILE}; done \
     && dnf autoremove -y \
-    && dnf clean all \
-    && rm -rf /tmp/
+    && dnf clean all
 
 FROM base
 
