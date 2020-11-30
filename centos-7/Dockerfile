@@ -5,11 +5,11 @@ ENV DEPENDENCIES "which software-properties-common python3 python3-pip python3-s
 
 ENV PIP_PKGS "ansible"
 
-RUN yum -y check-update \
+RUN yum -y check-update || true \
     && yum -y update-minimal \
     && yum makecache fast \
     && yum install --setopt=install_weak_deps=False deltarpm epel-release initscripts -y \
-    && yum -y check-update \
+    && yum -y check-update || true \
     && yum install --setopt=install_weak_deps=False ${DEPENDENCIES} @development -y \
     && python3 -m pip install --no-cache-dir -U pip wheel \
     && python3 -m pip install --no-cache-dir -U $PIP_PKGS \
