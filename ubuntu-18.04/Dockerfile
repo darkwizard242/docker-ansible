@@ -9,6 +9,7 @@ ENV PIP_PKGS "ansible"
 RUN  DEBIAN_FRONTEND=non-interactive apt-get update -y \
      && DEBIAN_FRONTEND=non-interactive apt-get --no-install-recommends -y upgrade \
      && DEBIAN_FRONTEND=non-interactive apt-get install --no-install-recommends -y ${DEPENDENCIES} \
+     && DEBIAN_FRONTEND=non-interactive apt-get install --install-recommends dirmngr -y \
      && python3 -m pip install --no-cache-dir -U pip wheel \
      && python3 -m pip install --no-cache-dir -U ${PIP_PKGS} \
      && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*.deb \
