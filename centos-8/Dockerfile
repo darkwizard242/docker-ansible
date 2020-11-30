@@ -1,4 +1,4 @@
-FROM centos:8
+FROM centos:8 as base
 MAINTAINER darkwizard242 <am900820@gmail.com>
 
 ENV DEPENDENCIES "which python3 python3-pip python3-setuptools sudo wget curl"
