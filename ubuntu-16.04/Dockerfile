@@ -9,7 +9,7 @@ ENV PIP_PKGS "ansible"
 RUN  DEBIAN_FRONTEND=non-interactive apt-get update -y \
      && DEBIAN_FRONTEND=non-interactive apt-get --no-install-recommends -y upgrade \
      && DEBIAN_FRONTEND=non-interactive apt-get install --no-install-recommends -y ${DEPENDENCIES} \
-     && python3 -m pip install --no-cache-dir -U pip \
+     && python3 -m pip install --no-cache-dir -U pip==20.3.4 \
      && python3 -m pip install --no-cache-dir -U wheel \
      && python3 -m pip install --no-cache-dir -U ${PIP_PKGS} \
      && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*.deb \
