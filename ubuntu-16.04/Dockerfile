@@ -1,6 +1,10 @@
 FROM ubuntu:xenial as base
 MAINTAINER darkwizard242 <am900820@gmail.com>
 
+## Due to error: (UnicodeEncodeError: 'ascii' codec can't encode character '\xe9' in position 117: ordinal not in range(128))
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
 ENV DEPENDENCIES "software-properties-common python3 python3-pip python3-setuptools python3-software-properties sudo apt-transport-https iputils-ping wget curl gnupg gcc python3-dev xz-utils"
 
 ENV PIP_PKGS "ansible"
