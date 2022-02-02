@@ -33,7 +33,7 @@ jobs:
 
     - name: Run Grype for Vulnerability Scanning of image
       run: |
-        grype darkwizard242/ansible:${{ matrix.TAG_NAME }}
+        sudo grype darkwizard242/ansible:${{ matrix.TAG_NAME }}
 
     - name: Archive and upload Dockerfile
       uses: actions/upload-artifact@master
