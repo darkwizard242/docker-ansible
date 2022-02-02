@@ -16,9 +16,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Grype for Vulnerability Scanning of Docker images.
-      run: |
-        curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo sh -s -- -b /usr/local/bin
+    # - name: Install Grype for Vulnerability Scanning of Docker images.
+    #   run: |
+    #     curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo sh -s -- -b /usr/local/bin
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
@@ -31,9 +31,9 @@ jobs:
         push: false
         tags: darkwizard242/ansible:${{ matrix.TAG_NAME }}
 
-    - name: Run Grype for Vulnerability Scanning of image
-      run: |
-        sudo grype docker:docker:darkwizard242/ansible:${{ matrix.TAG_NAME }}
+    # - name: Run Grype for Vulnerability Scanning of image
+    #   run: |
+    #     sudo grype docker:docker:darkwizard242/ansible:${{ matrix.TAG_NAME }}
 
     - name: Archive and upload Dockerfile
       uses: actions/upload-artifact@master
