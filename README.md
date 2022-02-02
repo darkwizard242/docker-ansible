@@ -2,8 +2,6 @@
 
 [![docker-ansible-master-build](https://github.com/darkwizard242/docker-ansible/workflows/docker-ansible-master-build/badge.svg?branch=master)](https://github.com/darkwizard242/docker-ansible/actions?query=workflow%3Adocker-ansible-master-build) ![Docker Pulls](https://img.shields.io/docker/pulls/darkwizard242/ansible?color=yellow) ![GitHub](https://img.shields.io/github/license/darkwizard242/docker-ansible)
 
-
-
 Docker images that contains ansible and/or any pre-requistes installed within the images. Purpose of these container images is to provide users with easy to use ansible docker containers as well as for easily ready images for facilitating molecule testing of ansible roles during development.
 
 ## Supported tags and Dockerfile:
@@ -94,4 +92,4 @@ docker run -it darkwizard242/ansible:debian-jessie /bin/bash
 
 ## Author:
 
-Created by [Ali Muhammad](https://www.linkedin.com/in/ali-muhammad-759791130/), a DevOps/CloudOps Engineer who loves to learn and contribute to Open Source community.
+Created by [Ali Muhammad](https://www.alimuhammad.dev/), a DevOps/CloudOps Engineer who loves to learn and contribute to Open Source community.
