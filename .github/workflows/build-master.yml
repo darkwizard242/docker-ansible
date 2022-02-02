@@ -18,9 +18,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Trivy for Vulnerability Scanning of Docker images.
+    - name: Install Grype for Vulnerability Scanning of Docker images.
       run: |
-        curl -fsSL https://raw.githubusercontent.com/darkwizard242/devopsubuntu1804/v1.0/packer-build/mods/27-trivy.sh | sudo bash -s -- install
+        curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo sh -s -- -b /usr/local/bin
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
@@ -39,10 +39,9 @@ jobs:
         push: true
         tags: darkwizard242/ansible:${{ matrix.TAG_NAME }}
 
-    - name: Run Trivy for Vulnerability Scanning of image
+    - name: Run Grype for Vulnerability Scanning of image
       run: |
-        export TRIVY_TIMEOUT_SEC=360s
-        trivy --severity HIGH,CRITICAL,MEDIUM,LOW darkwizard242/ansible:${{ matrix.TAG_NAME }}
+        grype darkwizard242/ansible:${{ matrix.TAG_NAME }}
 
     - name: Archive and upload Dockerfile
       uses: actions/upload-artifact@master
