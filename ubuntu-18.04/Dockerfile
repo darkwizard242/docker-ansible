@@ -1,5 +1,5 @@
 FROM ubuntu:bionic as base
-MAINTAINER darkwizard242 <am900820@gmail.com>
+LABEL maintainer="Ali Muhammad"
 
 ## Due to error: (UnicodeEncodeError: 'ascii' codec can't encode character '\xe9' in position 117: ordinal not in range(128))
 ENV LANG C.UTF-8

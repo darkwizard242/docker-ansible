@@ -1,11 +1,11 @@
 FROM centos:7 as base
-MAINTAINER darkwizard242 <am900820@gmail.com>
+LABEL maintainer="Ali Muhammad"
 
 ## Due to error: (UnicodeEncodeError: 'ascii' codec can't encode character '\xe9' in position 117: ordinal not in range(128))
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-ENV DEPENDENCIES "which software-properties-common python3 python3-pip python3-setuptools sudo wget curl"
+ENV DEPENDENCIES "which python3 python3-pip python3-setuptools sudo wget curl"
 
 ENV PIP_PKGS "ansible"
 

@@ -1,4 +1,4 @@
-FROM centos:8 as base
+FROM rockylinux:8 as base
 LABEL maintainer="Ali Muhammad"
 
 ENV DEPENDENCIES "which python3 python3-pip python3-setuptools sudo wget curl"
