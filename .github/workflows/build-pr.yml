@@ -11,7 +11,7 @@ jobs:
     strategy:
       max-parallel: 7
       matrix:
-        TAG_NAME: [ubuntu-20.04, ubuntu-18.04, centos-8, centos-7, debian-buster]
+        TAG_NAME: [ubuntu-20.04, ubuntu-18.04, centos-7, debian-buster]
 
     steps:
     - uses: actions/checkout@v2
@@ -35,7 +35,7 @@ jobs:
       run: |
         export TRIVY_TIMEOUT_SEC=360s
         trivy --severity HIGH,CRITICAL,MEDIUM,LOW darkwizard242/ansible:${{ matrix.TAG_NAME }}
-        
+
     - name: Archive and upload Dockerfile
       uses: actions/upload-artifact@master
       with:
