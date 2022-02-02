@@ -13,11 +13,11 @@ jobs:
     strategy:
       max-parallel: 7
       matrix:
-        TAG_NAME: [ubuntu-20.04, ubuntu-18.04, centos-8, centos-7, debian-buster]
+        TAG_NAME: [ubuntu-20.04, ubuntu-18.04, centos-7, debian-buster]
 
     steps:
     - uses: actions/checkout@v2
-    
+
     - name: Install Trivy for Vulnerability Scanning of Docker images.
       run: |
         curl -fsSL https://raw.githubusercontent.com/darkwizard242/devopsubuntu1804/v1.0/packer-build/mods/27-trivy.sh | sudo bash -s -- install
