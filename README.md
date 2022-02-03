@@ -64,10 +64,10 @@ docker run -it darkwizard242/ansible:ubuntu-18.04 /bin/bash
 docker run -it darkwizard242/ansible:ubuntu-16.04 /bin/bash
 ```
 
-### CentOS 8:
+### Rocky Linux 8:
 
 ```shell
-docker run -it darkwizard242/ansible:centos-8 /bin/bash
+docker run -it darkwizard242/ansible:rockylinux-8 /bin/bash
 ```
 
 ### CentOS 8:
