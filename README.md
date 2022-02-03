@@ -18,6 +18,10 @@ For Ubuntu 16.04 (xenial), docker tag and Dockerfile:
 
 - [ubuntu-16.04](https://github.com/darkwizard242/docker-ansible/blob/master/ubuntu-16.04/Dockerfile)
 
+For Rocky Linux 8, docker tag and Dockerfile:
+
+- [rockylinux-8](https://github.com/darkwizard242/docker-ansible/blob/master/rockylinux-8/Dockerfile)
+
 For CentOS 8, docker tag and Dockerfile:
 
 - [centos-8](https://github.com/darkwizard242/docker-ansible/blob/master/centos-8/Dockerfile)
@@ -42,49 +46,55 @@ For Debian 8 (jessie), docker tag and Dockerfile:
 
 Simply, pull the docker image using whichever tag you prefer or run it directly.
 
-### 1\. Ubuntu 20.04:
+### Ubuntu 20.04:
 
 ```shell
 docker run -it darkwizard242/ansible:ubuntu-20.04 /bin/bash
 ```
 
-### 2\. Ubuntu 18.04:
+### Ubuntu 18.04:
 
 ```shell
 docker run -it darkwizard242/ansible:ubuntu-18.04 /bin/bash
 ```
 
-### 3\. Ubuntu 16.04:
+### Ubuntu 16.04:
 
 ```shell
 docker run -it darkwizard242/ansible:ubuntu-16.04 /bin/bash
 ```
 
-### 4\. CentOS 8:
+### CentOS 8:
 
 ```shell
 docker run -it darkwizard242/ansible:centos-8 /bin/bash
 ```
 
-### 5\. CentOS 7:
+### CentOS 8:
+
+```shell
+docker run -it darkwizard242/ansible:centos-8 /bin/bash
+```
+
+### CentOS 7:
 
 ```shell
 docker run -it darkwizard242/ansible:centos-7 /bin/bash
 ```
 
-### 6\. Debain 10 (Buster):
+### Debain 10 (Buster):
 
 ```shell
 docker run -it darkwizard242/ansible:debian-buster /bin/bash
 ```
 
-### 7\. Debain 9 (Stretch):
+### Debain 9 (Stretch):
 
 ```shell
 docker run -it darkwizard242/ansible:debian-stretch /bin/bash
 ```
 
-### 8\. Debain 8 (Jessie):
+### Debain 8 (Jessie):
 
 ```shell
 docker run -it darkwizard242/ansible:debian-jessie /bin/bash
