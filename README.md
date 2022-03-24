@@ -30,6 +30,10 @@ For CentOS 7, docker tag and Dockerfile:
 
 - [centos-7](https://github.com/darkwizard242/docker-ansible/blob/master/centos-7/Dockerfile)
 
+For Debian 11 (bullseye), docker tag and Dockerfile:
+
+- [debian-buster](https://github.com/darkwizard242/docker-ansible/blob/master/debian-bullseye/Dockerfile)
+
 For Debian 10 (buster), docker tag and Dockerfile:
 
 - [debian-buster](https://github.com/darkwizard242/docker-ansible/blob/master/debian-buster/Dockerfile)
@@ -80,6 +84,12 @@ docker run -it darkwizard242/ansible:centos-8 /bin/bash
 
 ```shell
 docker run -it darkwizard242/ansible:centos-7 /bin/bash
+```
+
+### Debain 11 (Bullseye):
+
+```shell
+docker run -it darkwizard242/ansible:debian-bullseye /bin/bash
 ```
 
 ### Debain 10 (Buster):
