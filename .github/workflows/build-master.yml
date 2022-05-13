@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 10
       matrix:
-        TAG_NAME: [ubuntu-20.04, ubuntu-18.04, rockylinux-8, centos-7, debian-bullseye, debian-buster]
+        TAG_NAME: [ubuntu-22.04, ubuntu-20.04, ubuntu-18.04, rockylinux-8, centos-7, debian-bullseye, debian-buster]
 
     steps:
     - uses: actions/checkout@v2
