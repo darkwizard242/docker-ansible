@@ -6,6 +6,10 @@ Docker images that contains ansible and/or any pre-requistes installed within th
 
 ## Supported tags and Dockerfile:
 
+For Ubuntu 24.04 (noble), docker tag and Dockerfile:
+
+- [ubuntu-24.04](https://github.com/darkwizard242/docker-ansible/blob/master/ubuntu-24.04/Dockerfile)
+
 For Ubuntu 22.04 (jammy), docker tag and Dockerfile:
 
 - [ubuntu-22.04](https://github.com/darkwizard242/docker-ansible/blob/master/ubuntu-22.04/Dockerfile)
@@ -53,6 +57,12 @@ For Debian 8 (jessie), docker tag and Dockerfile:
 ## How to use:
 
 Simply, pull the docker image using whichever tag you prefer or run it directly.
+
+### Ubuntu 24.04:
+
+```shell
+docker run -it darkwizard242/ansible:ubuntu-22.04 /bin/bash
+```
 
 ### Ubuntu 22.04:
 
